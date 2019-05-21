@@ -4,7 +4,7 @@ import Header from "./components/layout/Header";
 
 function App() {
   return (
-    <div className="App">
+    <div classNameName="App">
       <Header />
       Book store
     </div>
