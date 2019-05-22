@@ -1,32 +1,11 @@
 import React, { Component } from "react";
-import Sidebar from "./Sidebar";
-
+import { ToggleSidebar } from "../../actions/sidebarAction";
+import { connect } from "react-redux";
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sidebarToggled: false
-    };
-    this.toggleSidebar = this.toggleSidebar.bind(this);
-  }
-
-  toggleSidebar() {
-    this.setState(state => ({
-      sidebarToggled: !state.sidebarToggled
-    }));
-  }
-
   render() {
-    const sidebarToggled = this.state.sidebarToggled;
-    let mainStyle = {};
-    sidebarToggled
-      ? (mainStyle = {
-          marginLeft: "250px"
-        })
-      : (mainStyle = { marginLeft: "0px" });
     return (
       <div>
-        <nav className="navbar navbar-dark bg-dark" style={mainStyle}>
+        <nav className="navbar navbar-dark mb-3">
           <button
             className="btn"
             type="button"
@@ -35,11 +14,11 @@ class Header extends Component {
             aria-controls="demo"
             aria-expanded="false"
             aria-label="Toggle navigation"
-            onClick={this.toggleSidebar}
+            onClick={this.props.ToggleSidebar}
           >
             <span className="navbar-toggler-icon" />
           </button>
-          <ul className="navbar-nav list-group list-group-horizontal">
+          <ul className="navbar-nav">
             <li className="nav-item listItem">
               <a className="nav-link" href="/">
                 Home
@@ -66,24 +45,16 @@ class Header extends Component {
             </li>
           </ul>
         </nav>
-
-        {sidebarToggled ? (
-          <div className="onSidebar">
-            <ul className="list-group">
-              <li className="list-item">Menu</li>
-              <li className="list-item">Category</li>
-              <li className="list-item">My orders</li>
-              <li className="list-item">Profile</li>
-              <li className="list-item">Gift Cards</li>
-              <li className="list-item">Wish list</li>
-            </ul>
-          </div>
-        ) : (
-          <div className="offSidebar" />
-        )}
       </div>
     );
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  sidebarToggled: state.book.sidebarToggled
+});
+
+export default connect(
+  mapStateToProps,
+  { ToggleSidebar }
+)(Header);

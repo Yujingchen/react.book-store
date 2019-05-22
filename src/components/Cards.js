@@ -1,28 +1,31 @@
 import React, { Component } from "react";
 import Card from "./Card";
+import Header from "./layout/Header";
 class Cards extends Component {
   render() {
     return (
-      <div className="container">
-        <div class="row">
-          {" "}
-          <div class="col-sm">
-            <Card />
-          </div>
-          <div class="col-sm">
-            <Card />
-          </div>
-          <div class="col-sm">
-            <Card />
-          </div>
-          <div class="col-sm">
-            <Card />
-          </div>
-          <div class="col-sm">
-            <Card />
-          </div>
-          <div class="col-sm">
-            <Card />
+      <div>
+        <Header />
+        <div className="container">
+          <div className="row">
+            <div className="col-sm">
+              <Card />
+            </div>
+            <div className="col-sm">
+              <Card />
+            </div>
+            <div className="col-sm">
+              <Card />
+            </div>
+            <div className="col-sm">
+              <Card />
+            </div>
+            <div className="col-sm">
+              <Card />
+            </div>
+            <div className="col-sm">
+              <Card />
+            </div>
           </div>
         </div>
       </div>
