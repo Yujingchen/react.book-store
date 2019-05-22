@@ -16,14 +16,32 @@
   margin-right: 10px;
 }
 
-.sidenav {
+/* sidebar */
+.navbar {
+  padding: 16px;
+  transition: 0.5s;
+}
+.onSidebar {
+  width: 250px;
   height: 100%;
-  width: 160px;
   position: fixed;
-  z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  padding-top: 20px;
+  transition: 0.5s;
+  background-color: #292b2c;
+}
+
+.offSidebar {
+  width: 0px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+  background-color: #292b2c;
+}
+.list-item {
+  color: white;
+  border-bottom: solid 1px white;
+  transition: inherit;
 }

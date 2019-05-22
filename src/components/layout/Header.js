@@ -1,11 +1,32 @@
 import React, { Component } from "react";
-import { userInfo } from "os";
+import Sidebar from "./Sidebar";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sidebarToggled: false
+    };
+    this.toggleSidebar = this.toggleSidebar.bind(this);
+  }
+
+  toggleSidebar() {
+    this.setState(state => ({
+      sidebarToggled: !state.sidebarToggled
+    }));
+  }
+
   render() {
+    const sidebarToggled = this.state.sidebarToggled;
+    let mainStyle = {};
+    sidebarToggled
+      ? (mainStyle = {
+          marginLeft: "250px"
+        })
+      : (mainStyle = { marginLeft: "0px" });
     return (
       <div>
-        <nav className="navbar navbar-dark bg-info d-print">
+        <nav className="navbar navbar-dark bg-dark" style={mainStyle}>
           <button
             className="btn"
             type="button"
@@ -14,6 +35,7 @@ class Header extends Component {
             aria-controls="demo"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            onClick={this.toggleSidebar}
           >
             <span className="navbar-toggler-icon" />
           </button>
@@ -44,12 +66,21 @@ class Header extends Component {
             </li>
           </ul>
         </nav>
-        <div id="demo" className="navbar-side sidenav collapse">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#clients">Clients</a>
-          <a href="#contact">Contact</a>
-        </div>
+
+        {sidebarToggled ? (
+          <div className="onSidebar">
+            <ul className="list-group">
+              <li className="list-item">Menu</li>
+              <li className="list-item">Category</li>
+              <li className="list-item">My orders</li>
+              <li className="list-item">Profile</li>
+              <li className="list-item">Gift Cards</li>
+              <li className="list-item">Wish list</li>
+            </ul>
+          </div>
+        ) : (
+          <div className="offSidebar" />
+        )}
       </div>
     );
   }
