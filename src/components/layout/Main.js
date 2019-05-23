@@ -12,8 +12,8 @@ class Main extends Component {
         })
       : (mainStyle = { marginLeft: "0px", transition: "0.5s" });
     return (
-      <div>
-        <div style={mainStyle}>
+      <div style={mainStyle}>
+        <div>
           <Cards />
         </div>
         <Sidebar />

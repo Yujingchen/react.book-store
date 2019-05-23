@@ -1,24 +1,25 @@
 import React, { Component } from "react";
-import download from "./download.svg";
 class Card extends Component {
   render() {
     return (
       <div className="container">
-        <div className="card" style={{ width: "300px" }}>
+        <div className="card mb-3">
           <img
             className="card-img-top"
-            src={download}
-            alt="lol"
-            style={{ width: "300px", margin: "auto", display: "block" }}
+            src={this.props.imgUrl}
+            alt={this.props.title}
           />
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+            <h5 className="card-title">{this.props.title}</h5>
             <p className="card-text">
-              Some quick example text to build on the card titl
+              {this.props.authors.map(author => author + "\n")}
             </p>
-            <a href="/" className="btn btn-dark">
-              click
-            </a>
+            <div className="row">
+              <a href="/" className="btn btn-dark addCard">
+                Add to Cart
+              </a>
+              <span className="priceTag">{this.props.price}€</span>
+            </div>
           </div>
         </div>
       </div>
