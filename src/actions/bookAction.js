@@ -1,5 +1,6 @@
 import { GET_MYBOOKS } from "./types";
 import { SEARCH_BOOK } from "./types";
+import { GET_BOOK } from "./types";
 import axios from "axios";
 
 export const GetMyBooks = () => async dispatch => {
@@ -23,6 +24,19 @@ export const HandleSearch = keyword => async dispatch => {
     dispatch({
       type: SEARCH_BOOK,
       payload: response.data.items
+    });
+  } catch (e) {}
+};
+
+export const GetBook = () => async dispatch => {
+  try {
+    const response = await axios.get(
+      "https://www.googleapis.com/books/v1/volumes/5NomkK4EV68C"
+    );
+
+    dispatch({
+      type: GET_BOOK,
+      payload: response.data
     });
   } catch (e) {}
 };

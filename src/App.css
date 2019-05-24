@@ -64,7 +64,7 @@ html * {
   width: 170px;
 }
 .card-img-top {
-  width: 160px;
+  width: 160px !important;
   height: 230px;
   margin: auto;
   display: block;
@@ -118,4 +118,27 @@ html * {
 }
 .inputfield {
   width: 70%;
+}
+
+.valume-info {
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 5px;
+  padding-right: 80px;
+}
+
+.sale-info {
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 5px;
+  padding-right: 80px;
+}
+
+.bookInfo {
+  justify-content: space-evenly;
+}
+.book-detail {
+  width: 80% !important;
+}
+.tabs-text {
+  font-size: 14px;
+  line-height: 24px;
 }

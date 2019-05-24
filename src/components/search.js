@@ -15,8 +15,6 @@ class Search extends Component {
     });
   }
 
-  handleSubmit;
-
   render() {
     const { keyword } = this.state;
     return (
