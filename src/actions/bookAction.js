@@ -28,10 +28,10 @@ export const HandleSearch = keyword => async dispatch => {
   } catch (e) {}
 };
 
-export const GetBook = () => async dispatch => {
+export const GetBook = id => async dispatch => {
   try {
     const response = await axios.get(
-      "https://www.googleapis.com/books/v1/volumes/5NomkK4EV68C"
+      `https://www.googleapis.com/books/v1/volumes/${id}`
     );
 
     dispatch({

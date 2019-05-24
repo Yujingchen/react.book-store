@@ -6,6 +6,7 @@ import { GetMyBooks } from "../actions/bookAction";
 import Search from "./Search";
 import imageNotFound from "../ImageNotFound.png";
 class Cards extends Component {
+  state = { totalItems: this.props.totalItems };
   componentDidMount() {
     this.props.GetMyBooks();
   }
@@ -13,14 +14,16 @@ class Cards extends Component {
     const { books } = this.props;
     return (
       <div>
-        <Header />
+        <div className="header">
+          <Header />
+        </div>
         <div className="container">
           <div className="container searchContainer border mb-3">
             <Search />
           </div>
           <div className="row">
-            {books.map(book => (
-              <div className="col-xm">
+            {books.map((book, i) => (
+              <div className="col-xm" key={book.id}>
                 <Card
                   imgUrl={
                     book.volumeInfo.hasOwnProperty("imageLinks")
@@ -40,7 +43,7 @@ class Cards extends Component {
                         : book.saleInfo.listPrice.amount + "€"
                       : "Unknown"
                   }
-                  key={book.id}
+                  id={book.id}
                 />
               </div>
             ))}

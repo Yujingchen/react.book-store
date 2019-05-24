@@ -123,22 +123,31 @@ html * {
 .valume-info {
   border-bottom: 1px solid #dee2e6;
   padding-bottom: 5px;
-  padding-right: 80px;
+  padding-right: 0px;
 }
 
 .sale-info {
   border-bottom: 1px solid #dee2e6;
   padding-bottom: 5px;
-  padding-right: 80px;
+  padding-right: 50px;
 }
 
 .bookInfo {
+  margin-top: 50px;
   justify-content: space-evenly;
 }
 .book-detail {
-  width: 80% !important;
+  width: 75% !important;
 }
 .tabs-text {
   font-size: 14px;
   line-height: 24px;
+}
+
+.main-content {
+  margin-bottom: 50px;
+}
+.bookInfo {
+  position: relative;
+  left: 50px;
 }

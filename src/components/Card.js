@@ -1,27 +1,32 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 class Card extends Component {
   render() {
     return (
       <div className="container">
         <div className="card mb-3">
           <div className="carImage">
-            <a href="/">
+            <Link to={`book/${this.props.id}`}>
               <img
                 className="card-img-top"
                 src={this.props.imgUrl}
                 alt={this.props.title}
               />
-            </a>
+            </Link>
           </div>
 
           <div className="card-body">
             <div className="cardTitle">
-              <a href="/" alt={this.props.title} title={this.props.title}>
+              <Link
+                to={`book/${this.props.id}`}
+                alt={this.props.title}
+                title={this.props.title}
+              >
                 <p className="card-title">{this.props.title}</p>
-              </a>
+              </Link>
             </div>
             <div className="cardText">
-              <a href="/" alt={this.props.authors[0]}>
+              <Link to={`book/${this.props.id}`}>
                 {this.props.authors !== null ? (
                   <p className="card-text">
                     {this.props.authors.map(author => author + "\n")}
@@ -29,13 +34,13 @@ class Card extends Component {
                 ) : (
                   <p className="card-text">{"Unknown Author"}</p>
                 )}
-              </a>
+              </Link>
             </div>
 
             <div className="row">
-              <a href="/" className="btn btn-dark addCard">
+              <Link to="/" className="btn btn-dark addCard">
                 Add to Cart
-              </a>
+              </Link>
               <span className="priceTag">{this.props.price}</span>
             </div>
           </div>

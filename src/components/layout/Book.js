@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Cards from "../Cards";
 import Sidebar from "./Sidebar";
 import { connect } from "react-redux";
+import Bookinfo from "../Bookinfo";
 
-class Main extends Component {
+class Book extends Component {
   render() {
     let mainStyle = {};
     this.props.sidebarToggled
@@ -12,10 +12,11 @@ class Main extends Component {
           transition: "0.5s"
         })
       : (mainStyle = { marginLeft: "0px", transition: "0.5s" });
+
     return (
       <div style={mainStyle}>
         <div className="main-content">
-          <Cards />
+          <Bookinfo id={this.props.match.params} />
         </div>
         <div className="side-bar">
           <Sidebar />
@@ -24,10 +25,11 @@ class Main extends Component {
     );
   }
 }
+
 const mapStateToProps = state => ({
   sidebarToggled: state.book.sidebarToggled
 });
 export default connect(
   mapStateToProps,
   null
-)(Main);
+)(Book);
