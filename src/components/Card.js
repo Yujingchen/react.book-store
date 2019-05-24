@@ -11,14 +11,19 @@ class Card extends Component {
           />
           <div className="card-body">
             <h5 className="card-title">{this.props.title}</h5>
-            <p className="card-text">
-              {this.props.authors.map(author => author + "\n")}
-            </p>
+            {this.props.authors !== null ? (
+              <p className="card-text">
+                {this.props.authors.map(author => author + "\n")}
+              </p>
+            ) : (
+              <p className="card-text">{"Unknown Author"}</p>
+            )}
+
             <div className="row">
               <a href="/" className="btn btn-dark addCard">
                 Add to Cart
               </a>
-              <span className="priceTag">{this.props.price}€</span>
+              <span className="priceTag">{this.props.price}</span>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Cards from "../Cards";
 import Sidebar from "./Sidebar";
 import { connect } from "react-redux";
+
 class Main extends Component {
   render() {
     let mainStyle = {};

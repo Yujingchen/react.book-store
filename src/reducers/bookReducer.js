@@ -1,9 +1,11 @@
 import { TOGGLE_SIDEBAR } from "../actions/types";
 import { GET_MYBOOKS } from "../actions/types";
+import { SEARCH_BOOK } from "../actions/types";
 const initialState = {
   sidebarToggled: true,
   book: {},
-  books: []
+  books: [],
+  result: []
 };
 
 export default function(state = initialState, action) {
@@ -14,5 +16,7 @@ export default function(state = initialState, action) {
       return { ...state, books: action.payload };
     default:
       return state;
+    case SEARCH_BOOK:
+      return { ...state, books: action.payload };
   }
 }
