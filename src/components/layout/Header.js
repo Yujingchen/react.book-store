@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { ToggleSidebar } from "../../actions/sidebarAction";
 import { connect } from "react-redux";
+import { ToggleSidebar } from "../../actions/sidebarAction";
 class Header extends Component {
   render() {
     return (

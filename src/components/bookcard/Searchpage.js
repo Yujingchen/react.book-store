@@ -1,30 +1,28 @@
 import React, { Component } from "react";
-import Card from "./Card";
-import Header from "./layout/Header";
 import { connect } from "react-redux";
-import { GetMyBooks } from "../actions/bookAction";
-import { LoadMore } from "../actions/bookAction";
-import Search from "./Search";
-import imageNotFound from "../ImageNotFound.png";
+import Header from "../layout/Header";
+import Search from "../layout/Search";
+import Card from "./Card";
+import { SearchMore } from "../../actions/bookAction";
+import imageNotFound from "../image/ImageNotFound.png";
 
-class Cards extends Component {
+class Searchpage extends Component {
   state = { totalItems: 10 };
-  componentDidMount() {
-    this.props.GetMyBooks();
-  }
   handleLoadMore = () => {
     this.setState(
       {
         totalItems: this.state.totalItems + 10
       },
       () => {
-        this.props.LoadMore(this.state.totalItems);
+        this.props.SearchMore(
+          this.props.match.params.keyword,
+          this.state.totalItems
+        );
       }
     );
   };
-
   render() {
-    const { books } = this.props;
+    const { result } = this.props;
     const { totalItems } = this.state;
     return (
       <div>
@@ -35,11 +33,11 @@ class Cards extends Component {
           <div className="container searchContainer border mb-3">
             <Search />
           </div>
-          <div className="collection-title">Popular Books</div>
-          {books.length !== 0 ? (
+          <div className="collection-title">Search Result</div>
+          {result.length !== 0 ? (
             <div className=" main-content">
               <div className="row">
-                {books.map((book, i) => (
+                {result.map((book, i) => (
                   <div className="col-xm" key={book.id}>
                     <Card
                       imgUrl={
@@ -65,7 +63,7 @@ class Cards extends Component {
                   </div>
                 ))}
               </div>
-              {books.length >= totalItems ? (
+              {result.length >= totalItems ? (
                 <div className="loadMore-btn">
                   <button
                     className="myBotton"
@@ -78,17 +76,17 @@ class Cards extends Component {
               ) : null}
             </div>
           ) : null}
-
           <div />
         </div>
       </div>
     );
   }
 }
+
 const mapStateToProps = state => ({
-  books: state.book.books
+  result: state.book.result
 });
 export default connect(
   mapStateToProps,
-  { GetMyBooks, LoadMore }
-)(Cards);
+  { SearchMore }
+)(Searchpage);

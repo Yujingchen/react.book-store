@@ -2,6 +2,7 @@ import { GET_MYBOOKS } from "./types";
 import { SEARCH_BOOK } from "./types";
 import { GET_BOOK } from "./types";
 import { LOAD_MORE_BOOK } from "./types";
+import { SEARCH_MORE_BOOK } from "./types";
 import axios from "axios";
 
 export const GetMyBooks = () => async dispatch => {
@@ -49,6 +50,18 @@ export const LoadMore = totalItems => async dispatch => {
     );
     dispatch({
       type: LOAD_MORE_BOOK,
+      payload: response.data.items
+    });
+  } catch (e) {}
+};
+
+export const SearchMore = (keyword, totalItems) => async dispatch => {
+  try {
+    const response = await axios.get(
+      `https://www.googleapis.com/books/v1/volumes?q=${keyword}&maxResults=${totalItems}`
+    );
+    dispatch({
+      type: SEARCH_MORE_BOOK,
       payload: response.data.items
     });
   } catch (e) {}

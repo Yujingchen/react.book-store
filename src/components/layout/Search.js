@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { HandleSearch } from "../actions/bookAction";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { HandleSearch } from "../../actions/bookAction";
 class Search extends Component {
   constructor(props) {
     super(props);
@@ -28,13 +29,14 @@ class Search extends Component {
           value={keyword}
         />
         <div className="input-group-append">
-          <button
+          <Link
+            to={`/search/${keyword}`}
             type="submit"
-            className="btn btn-secondary text-light"
+            className="btn btn-secondary text-dark"
             onClick={this.props.HandleSearch.bind(this, keyword)}
           >
             Search
-          </button>
+          </Link>
         </div>
       </div>
     );

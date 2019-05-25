@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import "./App.css";
-import Main from "./components/layout/Main";
-import { Provider } from "react-redux";
 import store from "./store";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
-import Book from "./components/layout/Book";
-
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Provider } from "react-redux";
+import MainHome from "./components/webpage/MainHome";
+import MainBook from "./components/webpage/MainBook";
+import MainResult from "./components/webpage/MainResult";
 class App extends Component {
   render() {
     return (
@@ -14,9 +14,9 @@ class App extends Component {
         <Provider store={store}>
           <div className="App">
             <Switch>
-              <Route exact path="/" component={Main} />
-              {/* <Route exact path="/book/search/:key" component={Main} /> */}
-              <Route exact path={`/book/:id`} component={Book} />
+              <Route exact path="/" component={MainHome} />
+              <Route exact path={`/book/:id`} component={MainBook} />
+              <Route exact path={`/search/:keyword`} component={MainResult} />
             </Switch>
           </div>
         </Provider>

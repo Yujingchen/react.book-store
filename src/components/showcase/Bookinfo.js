@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { GetBook } from "../actions/bookAction";
-import imageNotFound from "../ImageNotFound.png";
-import Header from "./layout/Header";
+import Header from "../layout/Header";
 import Productinfo from "./ProductInfo";
-
+import { GetBook } from "../../actions/bookAction";
+import imageNotFound from "../image/ImageNotFound.png";
 class Bookinfo extends Component {
   componentDidMount() {
     const { id } = this.props.id;
@@ -78,14 +77,6 @@ class Bookinfo extends Component {
                 ) : (
                   <p>Unknown Sale State</p>
                 )}
-
-                {/* // <p>
-                //   {book.saleInfo.hasOwnProperty("saleability")
-                //     ? book.saleInfo.saleability
-                //         .replace("NOT_FOR_SALE", "Out Of Stock")
-                //         .replace("FOR_SALE", "In Stock")
-                //     : "Unknown sale state"}
-                // </p> */}
               </div>
             </div>
           </div>

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Sidebar from "./Sidebar";
 import { connect } from "react-redux";
-import Bookinfo from "../Bookinfo";
+import Sidebar from "../layout/Sidebar";
+import Bookinfo from "../showcase/Bookinfo";
 
-class Book extends Component {
+class MainBook extends Component {
   render() {
     let mainStyle = {};
     this.props.sidebarToggled
@@ -32,4 +32,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   null
-)(Book);
+)(MainBook);

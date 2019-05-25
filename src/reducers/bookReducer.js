@@ -1,8 +1,12 @@
-import { TOGGLE_SIDEBAR } from "../actions/types";
-import { GET_MYBOOKS } from "../actions/types";
-import { SEARCH_BOOK } from "../actions/types";
-import { GET_BOOK } from "../actions/types";
-import { LOAD_MORE_BOOK } from "../actions/types";
+import {
+  TOGGLE_SIDEBAR,
+  GET_MYBOOKS,
+  SEARCH_BOOK,
+  GET_BOOK,
+  LOAD_MORE_BOOK,
+  SEARCH_MORE_BOOK
+} from "../actions/types";
+
 const initialState = {
   sidebarToggled: true,
   book: {},
@@ -17,11 +21,13 @@ export default function(state = initialState, action) {
     case GET_MYBOOKS:
       return { ...state, books: action.payload };
     case SEARCH_BOOK:
-      return { ...state, books: action.payload };
+      return { ...state, result: action.payload };
     case GET_BOOK:
       return { ...state, book: action.payload };
     case LOAD_MORE_BOOK:
       return { ...state, books: action.payload };
+    case SEARCH_MORE_BOOK:
+      return { ...state, result: action.payload };
     default:
       return state;
   }
