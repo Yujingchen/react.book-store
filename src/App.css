@@ -51,12 +51,11 @@
   padding: 10px;
 }
 
-html * {
-  font-size: 17px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  color: rgb(91, 67, 114);
+.collection-title {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 39px;
+  margin-bottom: 20px;
 }
 
 /* card */
@@ -150,4 +149,70 @@ html * {
 .bookInfo {
   position: relative;
   left: 50px;
+}
+/* product info */
+.info-box {
+  font-size: 14px;
+  line-height: 24px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  color: #333 !important;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 10px 15px 10px 0;
+  text-align: left;
+  vertical-align: top;
+  width: 170px;
+  margin-bottom: 20px;
+}
+
+.info-box-title {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.info-box-text {
+  font-weight: 100;
+  vertical-align: middle;
+  color: #333;
+}
+
+.myBotton {
+  border: 1px;
+
+  border-radius: 2px;
+  /* box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05); */
+  /* cursor: pointer; */
+  display: block;
+  /* font-family: "Roboto", sans-serif; */
+  font-size: 14px;
+  /* font-style: normal; */
+  /* font-weight: 500; */
+  /* height: 36px; */
+  min-width: 40px;
+  padding: 0 20px;
+  position: relative;
+  /* text-align: center; */
+  /* text-decoration: none; */
+  /* white-space: nowrap; */
+  /* vertical-align: middle; */
+  line-height: 20px;
+  /* transition: all 0.2s; */
+  height: 100%;
+  /* position: relative; */
+  /* text-rendering: optimizeLegibility; */
+  /* z-index: -1; */
+  margin: 8px;
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.loadMore-btn {
+  display: flex;
+  justify-content: center;
 }
