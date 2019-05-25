@@ -6,7 +6,7 @@ class Card extends Component {
       <div className="container">
         <div className="card mb-3">
           <div className="carImage">
-            <Link to={`book/${this.props.id}`}>
+            <Link to={`../book/${this.props.id}`}>
               <img
                 className="card-img-top"
                 src={this.props.imgUrl}
@@ -18,7 +18,7 @@ class Card extends Component {
           <div className="card-body">
             <div className="cardTitle">
               <Link
-                to={`book/${this.props.id}`}
+                to={`../book/${this.props.id}`}
                 alt={this.props.title}
                 title={this.props.title}
               >
@@ -26,7 +26,7 @@ class Card extends Component {
               </Link>
             </div>
             <div className="cardText">
-              <Link to={`book/${this.props.id}`}>
+              <Link to={`../book/${this.props.id}`}>
                 {this.props.authors !== null ? (
                   <p className="card-text">
                     {this.props.authors.map(author => author + "\n")}
