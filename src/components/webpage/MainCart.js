@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Sidebar from "../layout/Sidebar";
-import Searchpage from "../bookcard/Searchpage";
+import Items from "../checkoutItems/Items";
+import CheckoutForm from "../checkoutItems/CheckoutForm";
 
-class MainResult extends Component {
+class MainCart extends Component {
   render() {
     let mainStyle = {};
     this.props.sidebarToggled
@@ -16,8 +17,13 @@ class MainResult extends Component {
     return (
       <div style={mainStyle}>
         <div className="main-content">
-          <Searchpage />
+          <Items />
+
+          <div className="checkout-form container">
+            <CheckoutForm />
+          </div>
         </div>
+
         <div className="side-bar">
           <Sidebar />
         </div>
@@ -32,4 +38,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   null
-)(MainResult);
+)(MainCart);

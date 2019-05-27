@@ -4,14 +4,16 @@ import {
   SEARCH_BOOK,
   GET_BOOK,
   LOAD_MORE_BOOK,
-  SEARCH_MORE_BOOK
+  SEARCH_MORE_BOOK,
+  ADD_TO_CART
 } from "../actions/types";
 
 const initialState = {
   sidebarToggled: true,
   book: {},
   books: [],
-  result: []
+  result: [],
+  carts: []
 };
 
 export default function(state = initialState, action) {
@@ -28,6 +30,8 @@ export default function(state = initialState, action) {
       return { ...state, books: action.payload };
     case SEARCH_MORE_BOOK:
       return { ...state, result: action.payload };
+    case ADD_TO_CART:
+      return { ...state, carts: [...state.carts, action.payload] };
     default:
       return state;
   }

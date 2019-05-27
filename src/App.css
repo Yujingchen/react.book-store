@@ -70,7 +70,7 @@
 }
 
 .card-text {
-  color: black;
+  color: #000;
   font-size: 13px;
   font-weight: 300;
   border: 0;
@@ -82,7 +82,7 @@
   text-overflow: ellipsis;
 }
 .card-title {
-  color: black;
+  color: #000;
   font-size: 16px;
   font-weight: 300;
   white-space: nowrap;
@@ -131,10 +131,6 @@
   padding-right: 50px;
 }
 
-.bookInfo {
-  margin-top: 50px;
-  justify-content: space-evenly;
-}
 .book-detail {
   width: 75% !important;
 }
@@ -149,6 +145,8 @@
 .bookInfo {
   position: relative;
   left: 50px;
+  margin-top: 50px;
+  justify-content: space-evenly;
 }
 /* product info */
 .info-box {
@@ -159,7 +157,7 @@
   padding: 0;
   text-align: left;
   white-space: normal;
-  color: #333 !important;
+  color: #000 !important;
   box-sizing: border-box;
   display: inline-block;
   padding: 10px 15px 10px 0;
@@ -177,13 +175,13 @@
 .info-box-text {
   font-weight: 100;
   vertical-align: middle;
-  color: #333;
+  color: #000;
 }
 
 .myBotton {
   border: 1px;
 
-  border-radius: 2px;
+  border-radius: 4px;
   /* box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05); */
   /* cursor: pointer; */
   display: block;
@@ -192,8 +190,8 @@
   /* font-style: normal; */
   /* font-weight: 500; */
   /* height: 36px; */
-  min-width: 40px;
-  padding: 0 20px;
+  min-width: 80px;
+  padding: 7px;
   position: relative;
   /* text-align: center; */
   /* text-decoration: none; */
@@ -205,14 +203,57 @@
   /* position: relative; */
   /* text-rendering: optimizeLegibility; */
   /* z-index: -1; */
-  margin: 8px;
   display: inline-block;
   font-weight: 500;
   text-align: center;
-  text-transform: uppercase;
 }
 
 .loadMore-btn {
   display: flex;
   justify-content: center;
+}
+
+.myBotton:focus {
+  outline: none;
+}
+
+.cart-product {
+  float: left;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cart-img {
+  width: 100px !important;
+  height: 150px;
+  margin: auto;
+  display: block;
+}
+.cart-info-list {
+  list-style-type: none;
+}
+
+th {
+  background-color: #d4265b;
+  color: white;
+}
+
+.cart-checkout {
+  width: 31%;
+  float: right;
+  margin-top: 10px;
+}
+
+.line {
+  border-bottom: 1px solid #ddd;
+  box-sizing: inherit;
+  margin: 0.5rem 0;
+}
+
+.line-row {
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+.checkout-table {
+  margin-top: 50px;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { ToggleSidebar } from "../../actions/sidebarAction";
+import { Link } from "react-router-dom";
 class Header extends Component {
   render() {
     return (
@@ -20,28 +21,28 @@ class Header extends Component {
           </button>
           <ul className="navbar-nav">
             <li className="nav-item listItem">
-              <a className="nav-link" href="/">
+              <Link className="nav-link" to="/">
                 Home
                 <i className="fas fa-home" />
-              </a>
+              </Link>
             </li>
             <li className="nav-item listItem">
-              <a className="nav-link" href="/">
+              <Link className="nav-link" to="/cart">
                 Cart
                 <i className="fas fa-shopping-cart" />
-              </a>
+              </Link>
             </li>
             <li className="nav-item listItem">
-              <a className="nav-link" href="/">
+              <Link className="nav-link" to="/">
                 About
                 <i className="fas fa-info-circle" />
-              </a>
+              </Link>
             </li>
             <li className="nav-item listItem">
-              <a className="nav-link" href="/">
+              <Link className="nav-link" to="/">
                 Userinfo
                 <i className="fas fa-user" />
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

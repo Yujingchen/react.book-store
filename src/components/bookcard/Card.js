@@ -38,7 +38,11 @@ class Card extends Component {
             </div>
 
             <div className="row">
-              <Link to="/" className="btn btn-dark addCard">
+              <Link
+                to="/cart"
+                className="btn btn-dark addCard"
+                onClick={this.props.addCart(this.props.id)}
+              >
                 Add to Cart
               </Link>
               <span className="priceTag">{this.props.price}</span>

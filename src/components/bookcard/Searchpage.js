@@ -70,7 +70,7 @@ class Searchpage extends Component {
                     style={{ backgroundColor: "#fff", color: "#01579b" }}
                     onClick={this.handleLoadMore.bind(this)}
                   >
-                    See more
+                    SEE MORE
                   </button>
                 </div>
               ) : null}

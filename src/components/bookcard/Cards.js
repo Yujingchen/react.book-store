@@ -4,6 +4,7 @@ import Header from "../layout/Header";
 import Search from "../layout/Search";
 import { GetMyBooks } from "../../actions/bookAction";
 import { LoadMore } from "../../actions/bookAction";
+import { AddToCart } from "../../actions/cartAction";
 import Card from "./Card";
 import imageNotFound from "../image/ImageNotFound.png";
 
@@ -23,6 +24,10 @@ class Cards extends Component {
     );
   };
 
+  handleAddCart = id => {
+    this.props.AddToCart(id);
+  };
+
   render() {
     const { books } = this.props;
     const { totalItems } = this.state;
@@ -32,7 +37,7 @@ class Cards extends Component {
           <Header />
         </div>
         <div className="container">
-          <div className="container searchContainer border mb-3">
+          <div className=" searchContainer border mb-3">
             <Search />
           </div>
           <div className="collection-title">Popular Books</div>
@@ -42,6 +47,7 @@ class Cards extends Component {
                 {books.map((book, i) => (
                   <div className="col-xm" key={book.id}>
                     <Card
+                      addCart={this.handleAddCart.bind(this, book.id)}
                       imgUrl={
                         book.volumeInfo.hasOwnProperty("imageLinks")
                           ? book.volumeInfo.imageLinks.smallThumbnail
@@ -72,7 +78,7 @@ class Cards extends Component {
                     style={{ backgroundColor: "#fff", color: "#01579b" }}
                     onClick={this.handleLoadMore.bind(this)}
                   >
-                    See more
+                    SEE MORE
                   </button>
                 </div>
               ) : null}
@@ -90,5 +96,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { GetMyBooks, LoadMore }
+  { GetMyBooks, LoadMore, AddToCart }
 )(Cards);
