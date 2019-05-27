@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class CheckoutForm extends Component {
+  continueShop = () => {
+    this.props.history.push("/");
+    console.log("clicked");
+  };
   render() {
     return (
       <div className="cart-checkout">
@@ -12,7 +16,7 @@ class CheckoutForm extends Component {
             </tr>
             <tr>
               <td className="line-row">Shipping estimate</td>
-              <td className="line-row">5</td>
+              <td className="line-row">5€</td>
             </tr>
 
             <tr>
@@ -26,8 +30,9 @@ class CheckoutForm extends Component {
                 <button
                   className="myBotton btn-danger"
                   style={{ backgroundColor: "#CE2B87", color: "#fff" }}
+                  onClick={this.continueShop.bind(this)}
                 >
-                  Continue Shopping
+                  <i className="fas fa-shopping-cart" /> Continue Shopping
                 </button>
               </td>
               <td>
@@ -36,7 +41,7 @@ class CheckoutForm extends Component {
                   className="myBotton btn-success"
                   style={{ backgroundColor: "#019569", color: "#fff" }}
                 >
-                  Checkout
+                  Checkout <i className="fas fa-caret-right fa-lg" />
                 </button>
               </td>
             </tr>

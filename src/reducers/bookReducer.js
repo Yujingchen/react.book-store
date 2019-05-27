@@ -31,7 +31,13 @@ export default function(state = initialState, action) {
     case SEARCH_MORE_BOOK:
       return { ...state, result: action.payload };
     case ADD_TO_CART:
-      return { ...state, carts: [...state.carts, action.payload] };
+      return {
+        ...state,
+        carts: [
+          ...state.carts,
+          state.books.find(cart => cart.id === action.payload)
+        ]
+      };
     default:
       return state;
   }

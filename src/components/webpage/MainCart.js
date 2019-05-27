@@ -20,7 +20,7 @@ class MainCart extends Component {
           <Items />
 
           <div className="checkout-form container">
-            <CheckoutForm />
+            <CheckoutForm history={this.props.history} />
           </div>
         </div>
 

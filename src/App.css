@@ -224,13 +224,16 @@
 }
 
 .cart-img {
-  width: 100px !important;
-  height: 150px;
+  width: 80px !important;
+  height: 120px;
   margin: auto;
   display: block;
 }
 .cart-info-list {
   list-style-type: none;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #333;
 }
 
 th {
@@ -256,4 +259,20 @@ th {
 
 .checkout-table {
   margin-top: 50px;
+}
+
+.quantityInput {
+  width: 20%;
+  color: transparent;
+  text-shadow: 0 0 0 gray;
+}
+.quantityInput:focus {
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
