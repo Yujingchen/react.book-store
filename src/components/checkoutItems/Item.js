@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 
 class Item extends Component {
-  state = { quantity: 1 };
+  state = {
+    quantity: 1,
+    price: parseFloat(this.props.price),
+   
+  };
 
   handleQuantityChange(e) {
     this.setState({
@@ -48,9 +52,7 @@ class Item extends Component {
           />
         </td>
         <td>{this.props.price}€</td>
-        <td>
-          {(parseFloat(this.props.price) * this.state.quantity).toFixed(2)}€
-        </td>
+        <td>{this.props.subtotal}€</td>
         <td>
           <i className="fas fa-trash-alt" />
         </td>

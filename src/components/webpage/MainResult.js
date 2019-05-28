@@ -16,7 +16,7 @@ class MainResult extends Component {
     return (
       <div style={mainStyle}>
         <div className="main-content">
-          <Searchpage />
+          <Searchpage params={this.props.match.params} />
         </div>
         <div className="side-bar">
           <Sidebar />

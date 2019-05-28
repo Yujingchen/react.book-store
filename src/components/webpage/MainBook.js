@@ -16,6 +16,7 @@ class MainBook extends Component {
     return (
       <div style={mainStyle}>
         <div className="main-content">
+          {/* Params and history ects are passed to MainBook components as props, fixed params not found by passing it to next components' props */}
           <Bookinfo id={this.props.match.params} />
         </div>
         <div className="side-bar">

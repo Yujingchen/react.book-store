@@ -5,7 +5,8 @@ import {
   GET_BOOK,
   LOAD_MORE_BOOK,
   SEARCH_MORE_BOOK,
-  ADD_TO_CART
+  ADD_CART_FROM_BOOKS,
+  ADD_CART_FROM_RESULT
 } from "../actions/types";
 
 const initialState = {
@@ -30,14 +31,28 @@ export default function(state = initialState, action) {
       return { ...state, books: action.payload };
     case SEARCH_MORE_BOOK:
       return { ...state, result: action.payload };
-    case ADD_TO_CART:
-      return {
-        ...state,
-        carts: [
-          ...state.carts,
-          state.books.find(cart => cart.id === action.payload)
-        ]
-      };
+    case ADD_CART_FROM_BOOKS:
+      let index1 = state.carts.findIndex(cart => cart.id === action.payload);
+      if (index1 === -1)
+        return {
+          ...state,
+          carts: [
+            ...state.carts,
+            state.books.find(cart => cart.id === action.payload)
+          ]
+        };
+      return state;
+    case ADD_CART_FROM_RESULT:
+      let index2 = state.carts.findIndex(cart => cart.id === action.payload);
+      if (index2 === -1)
+        return {
+          ...state,
+          carts: [
+            ...state.carts,
+            state.result.find(aResult => aResult.id === action.payload)
+          ]
+        };
+      return state;
     default:
       return state;
   }

@@ -4,4 +4,5 @@ export const SEARCH_BOOK = "SEARCH_BOOK";
 export const GET_BOOK = "GET_BOOK";
 export const LOAD_MORE_BOOK = "LOAD_MORE_BOOK";
 export const SEARCH_MORE_BOOK = "SEARCH_MORE_BOOK";
-export const ADD_TO_CART = "ADD_TO_CART";
+export const ADD_CART_FROM_BOOKS = "ADD_CART_FROM_BOOKS";
+export const ADD_CART_FROM_RESULT = "ADD_CART_FROM_RESULT";

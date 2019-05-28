@@ -7,6 +7,7 @@ import imageNotFound from "../image/ImageNotFound.png";
 class Bookinfo extends Component {
   componentDidMount() {
     const { id } = this.props.id;
+    // id comes from this.props.match.params passed by parent component
     this.props.GetBook(id);
   }
 
