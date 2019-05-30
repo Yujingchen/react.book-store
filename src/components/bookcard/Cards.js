@@ -5,11 +5,12 @@ import Search from "../layout/Search";
 import { GetMyBooks } from "../../actions/bookAction";
 import { LoadMore } from "../../actions/bookAction";
 import { AddCartFromBooks } from "../../actions/cartAction";
+import { AddCartQuantity } from "../../actions/cartAction";
 import Card from "./Card";
 import imageNotFound from "../image/ImageNotFound.png";
 
 class Cards extends Component {
-  state = { totalItems: 10 };
+  state = { totalItems: 10, quantity: 1 };
   componentDidMount() {
     this.props.GetMyBooks();
   }
@@ -24,8 +25,9 @@ class Cards extends Component {
     );
   };
 
-  handleAddCart = id => {
+  handleAddCart = (id, quantity) => {
     this.props.AddCartFromBooks(id);
+    // this.props.AddCartQuantity(id, quantity);
   };
 
   render() {
@@ -41,48 +43,54 @@ class Cards extends Component {
             <Search />
           </div>
           <div className="collection-title">Popular Books</div>
-          {books.length !== 0 ? (
-            <div className=" main-content">
-              <div className="row">
-                {books.map((book, i) => (
-                  <div className="col-xm" key={book.id}>
-                    <Card
-                      addCart={this.handleAddCart.bind(this, book.id)}
-                      imgUrl={
-                        book.volumeInfo.hasOwnProperty("imageLinks")
-                          ? book.volumeInfo.imageLinks.smallThumbnail
-                          : imageNotFound
-                      }
-                      title={book.volumeInfo.title}
-                      authors={
-                        book.volumeInfo.hasOwnProperty("authors")
-                          ? book.volumeInfo.authors
-                          : null
-                      }
-                      price={
-                        book.saleInfo.hasOwnProperty("listPrice")
-                          ? book.saleInfo.listPrice.amount === 0
-                            ? "Free"
-                            : book.saleInfo.listPrice.amount + "€"
-                          : "Unknown"
-                      }
-                      id={book.id}
-                    />
-                  </div>
-                ))}
-              </div>
-              {books.length >= totalItems ? (
-                <div className="loadMore-btn">
-                  <button
-                    className="myBotton"
-                    style={{ backgroundColor: "#fff", color: "#01579b" }}
-                    onClick={this.handleLoadMore.bind(this)}
-                  >
-                    SEE MORE
-                  </button>
+          {Array.isArray(books) ? (
+            books.length !== 0 ? (
+              <div className=" main-content">
+                <div className="row">
+                  {books.map((book, i) => (
+                    <div className="col-xm" key={book.id}>
+                      <Card
+                        addCart={this.handleAddCart.bind(
+                          this,
+                          book.id,
+                          this.state.quantity
+                        )}
+                        imgUrl={
+                          book.volumeInfo.hasOwnProperty("imageLinks")
+                            ? book.volumeInfo.imageLinks.smallThumbnail
+                            : imageNotFound
+                        }
+                        title={book.volumeInfo.title}
+                        authors={
+                          book.volumeInfo.hasOwnProperty("authors")
+                            ? book.volumeInfo.authors
+                            : null
+                        }
+                        price={
+                          book.saleInfo.hasOwnProperty("listPrice")
+                            ? book.saleInfo.listPrice.amount === 0
+                              ? "Free"
+                              : book.saleInfo.listPrice.amount + "€"
+                            : "Unknown"
+                        }
+                        id={book.id}
+                      />
+                    </div>
+                  ))}
                 </div>
-              ) : null}
-            </div>
+                {books.length >= totalItems ? (
+                  <div className="loadMore-btn">
+                    <button
+                      className="myBotton"
+                      style={{ backgroundColor: "#fff", color: "#01579b" }}
+                      onClick={this.handleLoadMore.bind(this)}
+                    >
+                      SEE MORE
+                    </button>
+                  </div>
+                ) : null}
+              </div>
+            ) : null
           ) : null}
 
           <div />
@@ -96,5 +104,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { GetMyBooks, LoadMore, AddCartFromBooks }
+  { GetMyBooks, LoadMore, AddCartFromBooks, AddCartQuantity }
 )(Cards);

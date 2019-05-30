@@ -6,7 +6,8 @@ import {
   LOAD_MORE_BOOK,
   SEARCH_MORE_BOOK,
   ADD_CART_FROM_BOOKS,
-  ADD_CART_FROM_RESULT
+  ADD_CART_FROM_RESULT,
+  ADD_CART_QUANTILY
 } from "../actions/types";
 
 const initialState = {
@@ -14,7 +15,8 @@ const initialState = {
   book: {},
   books: [],
   result: [],
-  carts: []
+  carts: [],
+  quantity: []
 };
 
 export default function(state = initialState, action) {
@@ -33,6 +35,7 @@ export default function(state = initialState, action) {
       return { ...state, result: action.payload };
     case ADD_CART_FROM_BOOKS:
       let index1 = state.carts.findIndex(cart => cart.id === action.payload);
+      // prevent duplicate items
       if (index1 === -1)
         return {
           ...state,
@@ -44,6 +47,7 @@ export default function(state = initialState, action) {
       return state;
     case ADD_CART_FROM_RESULT:
       let index2 = state.carts.findIndex(cart => cart.id === action.payload);
+      // prevent duplicate items
       if (index2 === -1)
         return {
           ...state,
@@ -53,6 +57,13 @@ export default function(state = initialState, action) {
           ]
         };
       return state;
+    case ADD_CART_QUANTILY:
+      return {
+        quantity: [
+          ...state.quantity,
+          { id: action.payload.id, count: action.payload.quantity }
+        ]
+      };
     default:
       return state;
   }

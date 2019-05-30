@@ -3,8 +3,7 @@ import React, { Component } from "react";
 class Item extends Component {
   state = {
     quantity: 1,
-    price: parseFloat(this.props.price),
-   
+    price: parseFloat(this.props.price).toFixed(2)
   };
 
   handleQuantityChange(e) {
@@ -14,6 +13,7 @@ class Item extends Component {
   }
 
   render() {
+    let subtotal = (this.state.quantity * this.state.price).toFixed(2);
     return (
       <tr>
         <td>
@@ -51,8 +51,8 @@ class Item extends Component {
             onChange={this.handleQuantityChange.bind(this)}
           />
         </td>
-        <td>{this.props.price}€</td>
-        <td>{this.props.subtotal}€</td>
+        <td>{this.state.price}€</td>
+        <td>{subtotal}€</td>
         <td>
           <i className="fas fa-trash-alt" />
         </td>

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Sidebar from "../layout/Sidebar";
 import Items from "../checkoutItems/Items";
-import CheckoutForm from "../checkoutItems/CheckoutForm";
 
 class MainCart extends Component {
   render() {
@@ -17,11 +16,7 @@ class MainCart extends Component {
     return (
       <div style={mainStyle}>
         <div className="main-content">
-          <Items />
-
-          <div className="checkout-form container">
-            <CheckoutForm history={this.props.history} />
-          </div>
+          <Items history={this.props.history} />
         </div>
 
         <div className="side-bar">

@@ -3,7 +3,6 @@ import React, { Component } from "react";
 class CheckoutForm extends Component {
   continueShop = () => {
     this.props.history.push("/");
-    console.log("clicked");
   };
   render() {
     return (
