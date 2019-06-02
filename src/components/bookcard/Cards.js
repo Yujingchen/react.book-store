@@ -25,14 +25,13 @@ class Cards extends Component {
     );
   };
 
-  handleAddCart = (id, quantity) => {
+  handleAddCart = id => {
     this.props.AddCartFromBooks(id);
-    // this.props.AddCartQuantity(id, quantity);
   };
 
   render() {
     const { books } = this.props;
-    const { totalItems } = this.state;
+    const { totalItems, quantity } = this.state;
     return (
       <div>
         <div className="header">
@@ -50,11 +49,7 @@ class Cards extends Component {
                   {books.map((book, i) => (
                     <div className="col-xm" key={book.id}>
                       <Card
-                        addCart={this.handleAddCart.bind(
-                          this,
-                          book.id,
-                          this.state.quantity
-                        )}
+                        addCart={this.handleAddCart.bind(this, book.id)}
                         imgUrl={
                           book.volumeInfo.hasOwnProperty("imageLinks")
                             ? book.volumeInfo.imageLinks.smallThumbnail

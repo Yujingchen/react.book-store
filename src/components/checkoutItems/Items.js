@@ -3,19 +3,18 @@ import { connect } from "react-redux";
 import Item from "./Item";
 import CheckoutForm from "../checkoutItems/CheckoutForm";
 import Header from "../layout/Header";
+import { AddCount, DecreaseCount } from "../../actions/cartAction";
 import imageNotFound from "../image/ImageNotFound.png";
 
 class Items extends Component {
-  constructor(props) {
-    super(props);
-    // this.handleSubtotal = this.handleSubtotal.bind(this);
-  }
-  // handleSubtotal = subTotal => {
-  //   this.setState({ subTotal });
-  // };
+  handleAddCount = id => {
+    this.props.AddCount(id);
+  };
+  handleDecreaseCount = id => {
+    this.props.DecreaseCount(id);
+  };
   render() {
     const { carts } = this.props;
-    // const { subTotal } = this.state;
     return (
       <>
         <div className="header">
@@ -38,6 +37,10 @@ class Items extends Component {
                   <tbody>
                     {carts.map((cart, i) => (
                       <Item
+                        increment={this.handleAddCount.bind(this, cart.id)}
+                        decrement={this.handleDecreaseCount.bind(this, cart.id)}
+                        itemCount={cart.count}
+                        //changed
                         image={
                           cart.volumeInfo.hasOwnProperty("imageLinks")
                             ? cart.volumeInfo.imageLinks.smallThumbnail
@@ -60,10 +63,22 @@ class Items extends Component {
                         }
                         price={
                           cart.saleInfo.hasOwnProperty("listPrice")
-                            ? cart.saleInfo.listPrice.amount === 0
-                              ? "Free"
-                              : cart.saleInfo.listPrice.amount
-                            : "Unknown"
+                            ? parseFloat(
+                                cart.saleInfo.listPrice.amount
+                              ).toFixed(2)
+                            : 0
+                        }
+                        subtotal={
+                          // quantityArr[i].quantity !== null ? this.price : 0
+                          // cart.saleInfo.hasOwnProperty("listPrice")
+                          //   ? quantityArr[i].quantity
+                          //     ? parseFloat(
+                          //         cart.saleInfo.listPrice.amount
+                          //       ).toFixed(2) * quantityArr[i].quantity
+                          //     : "no quantity"
+                          //   : 0
+                          cart.total
+                          //changed
                         }
                         stock={
                           cart.saleInfo.hasOwnProperty("saleability")
@@ -84,6 +99,7 @@ class Items extends Component {
                             : "Unknown publisher"
                         }
                         key={cart.id}
+                        id={cart.id}
                         // subTotal={}
                         // handleSubtotal={this.handleSubtotal}
                       />
@@ -106,9 +122,10 @@ class Items extends Component {
   }
 }
 const mapStateToProps = state => ({
-  carts: state.book.carts
+  carts: state.book.carts,
+  quantityArr: state.book.quantityArr
 });
 export default connect(
   mapStateToProps,
-  null
+  { AddCount, DecreaseCount }
 )(Items);

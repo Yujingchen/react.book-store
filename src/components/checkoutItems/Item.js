@@ -1,19 +1,19 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { UpdateQuantity } from "../../actions/cartAction";
+import { FaChevronCircleUp, FaChevronCircleDown } from "react-icons/fa";
 
 class Item extends Component {
-  state = {
-    quantity: 1,
-    price: parseFloat(this.props.price).toFixed(2)
-  };
+  // state = {
+  //   price: parseFloat(this.props.price).toFixed(2)
+  // };
 
-  handleQuantityChange(e) {
-    this.setState({
-      quantity: e.target.value
-    });
-  }
+  // handleQuantityChange(id, targetValue) {
+  //   this.props.UpdateQuantity(targetValue, id);
+  // }
 
   render() {
-    let subtotal = (this.state.quantity * this.state.price).toFixed(2);
+    const { id } = this.props;
     return (
       <tr>
         <td>
@@ -42,17 +42,31 @@ class Item extends Component {
           </div>
         </td>
         <td>
+          <FaChevronCircleDown
+            className="text-primary cart-icon"
+            onClick={this.props.decrement}
+          />
+          <span>{this.props.itemCount}</span>
+          <FaChevronCircleUp
+            className="text-primary cart-icon"
+            onClick={this.props.increment}
+          />
+
+          {/* 
           <input
             className="quantityInput"
             type="number"
             name="quantity"
             title="quantity"
-            value={this.state.quantity}
-            onChange={this.handleQuantityChange.bind(this)}
-          />
+            value={this.props.itemCount}
+            // value={this.props.quantity}
+            onChange={event => {
+              this.handleQuantityChange(id, event.target.value);
+            }}
+          /> */}
         </td>
-        <td>{this.state.price}€</td>
-        <td>{subtotal}€</td>
+        <td>{this.props.price}€</td>
+        <td>{this.props.subtotal}€</td>
         <td>
           <i className="fas fa-trash-alt" />
         </td>
@@ -61,4 +75,14 @@ class Item extends Component {
   }
 }
 
-export default Item;
+// const mapStateToProps = state => ({
+//   carts: state.book.carts,
+//   quantity: state.book.quantity
+// });
+
+export default connect(
+  null,
+  { UpdateQuantity }
+)(Item);
+
+// export default Item;
