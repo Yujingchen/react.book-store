@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Sidebar from "../layout/Sidebar";
-import Bookinfo from "../showcase/Bookinfo";
+import Searchpage from "../bookcard/Searchpage";
 
-class MainBook extends Component {
+class SearchResult extends Component {
   render() {
     let mainStyle = {};
     this.props.sidebarToggled
@@ -16,8 +16,7 @@ class MainBook extends Component {
     return (
       <div style={mainStyle}>
         <div className="main-content">
-          {/* Params and history ects are passed to MainBook components as props, fixed params not found by passing it to next components' props */}
-          <Bookinfo id={this.props.match.params} />
+          <Searchpage params={this.props.match.params} />
         </div>
         <div className="side-bar">
           <Sidebar />
@@ -33,4 +32,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   null
-)(MainBook);
+)(SearchResult);

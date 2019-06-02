@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Cards from "../bookcard/Cards";
 import Sidebar from "../layout/Sidebar";
 
-class MainHome extends Component {
+class Home extends Component {
   render() {
     let mainStyle = {};
     this.props.sidebarToggled
@@ -30,4 +30,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   null
-)(MainHome);
+)(Home);

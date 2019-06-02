@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Item from "./Item";
-import CheckoutForm from "../checkoutItems/CheckoutForm";
+import CheckoutForm from "./CheckoutForm";
 import Header from "../layout/Header";
-import { AddCount, DecreaseCount } from "../../actions/cartAction";
+import { AddCount, DecreaseCount, DeleteCart } from "../../actions/cartAction";
 import imageNotFound from "../image/ImageNotFound.png";
 
 class Items extends Component {
@@ -13,6 +13,9 @@ class Items extends Component {
   handleDecreaseCount = id => {
     this.props.DecreaseCount(id);
   };
+  handleDeleteClick = id => {
+    this.props.DeleteCart(id);
+  };
   render() {
     const { carts } = this.props;
     return (
@@ -20,6 +23,7 @@ class Items extends Component {
         <div className="header">
           <Header />
         </div>
+        <div className="collection-title">Shopping Cart</div>
         {Array.isArray(carts) ? (
           carts.length !== 0 ? (
             <>
@@ -39,6 +43,10 @@ class Items extends Component {
                       <Item
                         increment={this.handleAddCount.bind(this, cart.id)}
                         decrement={this.handleDecreaseCount.bind(this, cart.id)}
+                        onDeleteClick={this.handleDeleteClick.bind(
+                          this,
+                          cart.id
+                        )}
                         itemCount={cart.count}
                         //changed
                         image={
@@ -115,5 +123,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { AddCount, DecreaseCount }
+  { AddCount, DecreaseCount, DeleteCart }
 )(Items);

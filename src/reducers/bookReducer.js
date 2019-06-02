@@ -10,7 +10,8 @@ import {
   // ADD_CART_QUANTILY,
   // UPDATE_CART_QUANTITY,
   INCREASE_CART_COUNT,
-  DECREASE_CART_COUNT
+  DECREASE_CART_COUNT,
+  DELETE_CART
 } from "../actions/types";
 
 const initialState = {
@@ -36,6 +37,11 @@ export default function(state = initialState, action) {
       return { ...state, books: action.payload };
     case SEARCH_MORE_BOOK:
       return { ...state, result: action.payload };
+    case DELETE_CART:
+      return {
+        ...state,
+        carts: state.carts.filter(cart => cart.id !== action.payload)
+      };
     case ADD_CART_FROM_BOOKS:
       // let index1 = state.carts.findIndex(cart => cart.id === action.payload);
       // prevent duplicate items

@@ -123,6 +123,8 @@
   border-bottom: 1px solid #dee2e6;
   padding-bottom: 5px;
   padding-right: 0px;
+  max-width: 350px;
+  min-width: 350px;
 }
 
 .sale-info {
@@ -281,6 +283,11 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
-.cart-table {
-  table-layout: fixed;
+.cart-cell {
+  min-width: 20px;
+  max-width: 20px;
+}
+
+.delete-icon {
+  cursor: pointer;
 }

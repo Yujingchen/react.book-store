@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Sidebar from "../layout/Sidebar";
-import Items from "../checkoutItems/Items";
+import Bookinfo from "../showcase/Bookinfo";
 
-class MainCart extends Component {
+class BookDetail extends Component {
   render() {
     let mainStyle = {};
     this.props.sidebarToggled
@@ -16,9 +16,9 @@ class MainCart extends Component {
     return (
       <div style={mainStyle}>
         <div className="main-content">
-          <Items history={this.props.history} />
+          {/* Params and history ects are passed to MainBook components as props, fixed params not found by passing it to next components' props */}
+          <Bookinfo id={this.props.match.params} />
         </div>
-
         <div className="side-bar">
           <Sidebar />
         </div>
@@ -33,4 +33,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   null
-)(MainCart);
+)(BookDetail);

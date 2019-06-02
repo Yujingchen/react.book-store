@@ -4,6 +4,7 @@ import { ADD_CART_QUANTILY } from "./types";
 import { UPDATE_CART_QUANTITY } from "./types";
 import { INCREASE_CART_COUNT } from "./types";
 import { DECREASE_CART_COUNT } from "./types";
+import { DELETE_CART } from "./types";
 // import axios from "axios";
 
 export const AddCartFromBooks = id => async dispatch => {
@@ -70,6 +71,14 @@ export const DecreaseCount = id => async dispatch => {
   try {
     dispatch({
       type: DECREASE_CART_COUNT,
+      payload: id
+    });
+  } catch (e) {}
+};
+export const DeleteCart = id => async dispatch => {
+  try {
+    dispatch({
+      type: DELETE_CART,
       payload: id
     });
   } catch (e) {}

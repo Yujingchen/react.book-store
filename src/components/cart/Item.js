@@ -41,10 +41,15 @@ class Item extends Component {
             onClick={this.props.increment}
           />
         </td>
-        <td>{this.props.price}€</td>
-        <td>{this.props.subtotal}€</td>
+        <td>{parseFloat(this.props.price).toFixed(2)}€</td>
+        <td className="cart-cell">
+          {parseFloat(this.props.subtotal).toFixed(2)}€
+        </td>
         <td>
-          <i className="fas fa-trash-alt" />
+          <i
+            className="fas fa-trash-alt delete-icon"
+            onClick={this.props.onDeleteClick}
+          />
         </td>
       </tr>
     );

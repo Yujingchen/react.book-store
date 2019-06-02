@@ -81,7 +81,7 @@ class CheckoutForm extends Component {
     const { total, subtotal, itemCount, shippingFee } = this.state;
     return (
       <div className="cart-checkout">
-        <table className="table table-borderless ">
+        <table className="table table-borderless dataCell">
           <tbody>
             <tr>
               <td>Items</td>
@@ -90,7 +90,6 @@ class CheckoutForm extends Component {
             <tr>
               <td>Subtotal</td>
               <td>{subtotal.toFixed(2)}€</td>
-              {console.log(isNaN(subtotal))}
             </tr>
             <tr>
               <td className="line-row">Shipping estimate</td>
