@@ -24,7 +24,7 @@ class Items extends Component {
           carts.length !== 0 ? (
             <>
               <div className="checkout-table container">
-                <table className="table table-striped">
+                <table className="table table-striped cart-table">
                   <thead>
                     <tr>
                       <th scope="col-4">Product</th>
@@ -64,22 +64,13 @@ class Items extends Component {
                         price={
                           cart.saleInfo.hasOwnProperty("listPrice")
                             ? parseFloat(
-                                cart.saleInfo.listPrice.amount
+                                Math.round(
+                                  cart.saleInfo.listPrice.amount * 100
+                                ) / 100
                               ).toFixed(2)
                             : 0
                         }
-                        subtotal={
-                          // quantityArr[i].quantity !== null ? this.price : 0
-                          // cart.saleInfo.hasOwnProperty("listPrice")
-                          //   ? quantityArr[i].quantity
-                          //     ? parseFloat(
-                          //         cart.saleInfo.listPrice.amount
-                          //       ).toFixed(2) * quantityArr[i].quantity
-                          //     : "no quantity"
-                          //   : 0
-                          cart.total
-                          //changed
-                        }
+                        subtotal={cart.total}
                         stock={
                           cart.saleInfo.hasOwnProperty("saleability")
                             ? cart.saleInfo.saleability === "NOT_FOR_SALE"
@@ -100,8 +91,6 @@ class Items extends Component {
                         }
                         key={cart.id}
                         id={cart.id}
-                        // subTotal={}
-                        // handleSubtotal={this.handleSubtotal}
                       />
                     ))}
                   </tbody>
@@ -122,8 +111,7 @@ class Items extends Component {
   }
 }
 const mapStateToProps = state => ({
-  carts: state.book.carts,
-  quantityArr: state.book.quantityArr
+  carts: state.book.carts
 });
 export default connect(
   mapStateToProps,

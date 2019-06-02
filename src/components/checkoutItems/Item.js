@@ -1,22 +1,11 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { UpdateQuantity } from "../../actions/cartAction";
 import { FaChevronCircleUp, FaChevronCircleDown } from "react-icons/fa";
 
 class Item extends Component {
-  // state = {
-  //   price: parseFloat(this.props.price).toFixed(2)
-  // };
-
-  // handleQuantityChange(id, targetValue) {
-  //   this.props.UpdateQuantity(targetValue, id);
-  // }
-
   render() {
-    const { id } = this.props;
     return (
       <tr>
-        <td>
+        <td className="dataCell">
           <div className="cart-product">
             <div>
               <img
@@ -51,19 +40,6 @@ class Item extends Component {
             className="text-primary cart-icon"
             onClick={this.props.increment}
           />
-
-          {/* 
-          <input
-            className="quantityInput"
-            type="number"
-            name="quantity"
-            title="quantity"
-            value={this.props.itemCount}
-            // value={this.props.quantity}
-            onChange={event => {
-              this.handleQuantityChange(id, event.target.value);
-            }}
-          /> */}
         </td>
         <td>{this.props.price}€</td>
         <td>{this.props.subtotal}€</td>
@@ -75,14 +51,4 @@ class Item extends Component {
   }
 }
 
-// const mapStateToProps = state => ({
-//   carts: state.book.carts,
-//   quantity: state.book.quantity
-// });
-
-export default connect(
-  null,
-  { UpdateQuantity }
-)(Item);
-
-// export default Item;
+export default Item;

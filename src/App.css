@@ -280,3 +280,7 @@ input::-webkit-inner-spin-button {
 .cart-icon {
   cursor: pointer;
 }
+
+.cart-table {
+  table-layout: fixed;
+}

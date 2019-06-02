@@ -31,7 +31,7 @@ class Cards extends Component {
 
   render() {
     const { books } = this.props;
-    const { totalItems, quantity } = this.state;
+    const { totalItems } = this.state;
     return (
       <div>
         <div className="header">
@@ -99,5 +99,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { GetMyBooks, LoadMore, AddCartFromBooks, AddCartQuantity }
+  { GetMyBooks, LoadMore, AddCartFromBooks }
 )(Cards);

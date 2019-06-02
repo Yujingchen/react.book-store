@@ -7,8 +7,8 @@ import {
   SEARCH_MORE_BOOK,
   ADD_CART_FROM_BOOKS,
   ADD_CART_FROM_RESULT,
-  ADD_CART_QUANTILY,
-  UPDATE_CART_QUANTITY,
+  // ADD_CART_QUANTILY,
+  // UPDATE_CART_QUANTITY,
   INCREASE_CART_COUNT,
   DECREASE_CART_COUNT
 } from "../actions/types";
@@ -18,8 +18,8 @@ const initialState = {
   book: {},
   books: [],
   result: [],
-  carts: [],
-  quantityArr: []
+  carts: []
+  // quantityArr: []
 };
 
 export default function(state = initialState, action) {
@@ -90,28 +90,29 @@ export default function(state = initialState, action) {
         };
       return state;
 
-    case ADD_CART_QUANTILY:
-      let index3 = state.quantityArr.findIndex(
-        itemQuantity => itemQuantity.id === action.payload.id
-      );
-      // prevent duplicate items
-      if (index3 === -1)
-        return {
-          ...state,
-          quantityArr: [...state.quantityArr, action.payload]
-        };
-      return state;
-    case UPDATE_CART_QUANTITY:
-      return {
-        ...state,
-        quantityArr: state.quantityArr.map(quantityObject => {
-          if (quantityObject.id === action.payload.id) {
-            return { ...quantityObject, quantity: action.payload.quantity };
-          } else {
-            return quantityObject;
-          }
-        })
-      };
+    // case ADD_CART_QUANTILY:
+    //   let index3 = state.quantityArr.findIndex(
+    //     itemQuantity => itemQuantity.id === action.payload.id
+    //   );
+    //   // prevent duplicate items
+    //   if (index3 === -1)
+    //     return {
+    //       ...state,
+    //       quantityArr: [...state.quantityArr, action.payload]
+    //     };
+    //   return state;
+    // case UPDATE_CART_QUANTITY:
+    //   return {
+    //     ...state,
+    //     quantityArr: state.quantityArr.map(quantityObject => {
+    //       if (quantityObject.id === action.payload.id) {
+    //         return { ...quantityObject, quantity: action.payload.quantity };
+    //       } else {
+    //         return quantityObject;
+    //       }
+    //     })
+    //   };
+
     case INCREASE_CART_COUNT:
       //note:spelling mistake on state.cart can disable the reducer to dispatch
       let tempcart = [...state.carts];
