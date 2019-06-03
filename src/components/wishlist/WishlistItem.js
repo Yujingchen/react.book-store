@@ -54,15 +54,16 @@ export default class WishlistItem extends Component {
               to="/cart"
               className="btn btn-primary wishlist-btn"
               onClick={this.props.AddCart}
+              style={{ backgroundColor: "#3665f3", color: "#fff" }}
             >
               Add to Cart
             </Link>
           </div>
           <div className="wishlist-action">
             <Link
-              to="/cart"
+              to="/wishlist"
               className="btn btn-danger wishlist-btn"
-              onClick={this.props.DeleteCart}
+              onClick={this.props.onDeleteClick}
             >
               Delete
             </Link>

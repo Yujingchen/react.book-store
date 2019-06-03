@@ -7,8 +7,8 @@ class Sidebar extends Component {
     return (
       <div className="container">
         {this.props.sidebarToggled ? (
-          <div className="onSidebar">
-            <ul className="list-group">
+          <div className="onSidebar sidebar-list">
+            <ul className="list-group ">
               <li className="list-item">Menu</li>
               <li className="list-item">Category</li>
               <li className="list-item">My orders</li>

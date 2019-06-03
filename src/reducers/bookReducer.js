@@ -9,7 +9,8 @@ import {
   INCREASE_CART_COUNT,
   DECREASE_CART_COUNT,
   DELETE_CART,
-  ADD_WISHLIST
+  ADD_WISHLIST,
+  DELETE_WISHLIST
 } from "../actions/types";
 
 const initialState = {
@@ -111,6 +112,11 @@ export default function(state = initialState, action) {
           wishlist: [...state.wishlist, state.book]
         };
       return state;
+    case DELETE_WISHLIST:
+      return {
+        ...state,
+        wishlist: state.wishlist.filter(item => item.id !== action.payload)
+      };
 
     default:
       return state;

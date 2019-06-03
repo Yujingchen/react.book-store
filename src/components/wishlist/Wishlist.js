@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import WishlistItem from "./WishlistItem";
 import { AddCartFromBooks } from "../../actions/cartAction";
-
+import { DeleteWishlist } from "../../actions/wishlistAction";
+import EmptryWishlist from "./EmptyWishlist";
 import Header from "../layout/Header";
 // import { AddCount, DecreaseCount, DeleteCart } from "../../actions/cartAction";
 import imageNotFound from "../image/ImageNotFound.png";
@@ -12,7 +13,7 @@ class Wishlist extends Component {
     this.props.AddCartFromBooks(id);
   };
   handleDeleteClick = id => {
-    this.props.DeleteCart(id);
+    this.props.DeleteWishlist(id);
   };
   render() {
     const { wishlist } = this.props;
@@ -85,8 +86,12 @@ class Wishlist extends Component {
                   ))}
                 </div>
               </>
-            ) : null
-          ) : null}
+            ) : (
+              <EmptryWishlist />
+            )
+          ) : (
+            <EmptryWishlist />
+          )}
         </div>
       </>
     );
@@ -97,5 +102,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { AddCartFromBooks }
+  { AddCartFromBooks, DeleteWishlist }
 )(Wishlist);
