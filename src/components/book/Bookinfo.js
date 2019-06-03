@@ -5,6 +5,7 @@ import Productinfo from "./ProductInfo";
 import { GetBook } from "../../actions/bookAction";
 import imageNotFound from "../image/ImageNotFound.png";
 import { AddCartFromBooks } from "../../actions/cartAction";
+import { AddToWishlist } from "../../actions/wishlistAction";
 import Spinner from "../layout/Spinner";
 import { Link } from "react-router-dom";
 import RatingStar from "../layout/RatingStar";
@@ -24,6 +25,9 @@ class Bookinfo extends Component {
   }
   handleAddCart = id => {
     this.props.AddCartFromBooks(id);
+  };
+  handleAddWishlist = id => {
+    this.props.AddToWishlist(id);
   };
 
   render() {
@@ -113,9 +117,9 @@ class Bookinfo extends Component {
                       Add to Cart
                     </Link>
                     <Link
-                      to="/cart"
+                      to="/wishlist"
                       className="btn addToWishlist-btn btn-success"
-                      onClick={this.props.addCart}
+                      onClick={this.handleAddWishlist.bind(this, book.id)}
                     >
                       Add to Wishlist
                     </Link>
@@ -211,5 +215,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { GetBook, AddCartFromBooks }
+  { GetBook, AddCartFromBooks, AddToWishlist }
 )(Bookinfo);

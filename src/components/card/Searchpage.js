@@ -4,7 +4,7 @@ import Header from "../layout/Header";
 import Search from "../layout/Search";
 import Card from "./Card";
 import { SearchMore } from "../../actions/bookAction";
-import { AddCartFromResult } from "../../actions/cartAction";
+import { AddCartFromBooks } from "../../actions/cartAction";
 import imageNotFound from "../image/ImageNotFound.png";
 
 class Searchpage extends Component {
@@ -21,7 +21,7 @@ class Searchpage extends Component {
     );
   };
   handleAddCart = id => {
-    this.props.AddCartFromResult(id);
+    this.props.AddCartFromBooks(id);
   };
 
   render() {
@@ -100,5 +100,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { SearchMore, AddCartFromResult }
+  { SearchMore, AddCartFromBooks }
 )(Searchpage);

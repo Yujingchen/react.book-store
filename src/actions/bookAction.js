@@ -1,8 +1,11 @@
-import { GET_MYBOOKS } from "./types";
-import { SEARCH_BOOK } from "./types";
-import { GET_BOOK } from "./types";
-import { LOAD_MORE_BOOK } from "./types";
-import { SEARCH_MORE_BOOK } from "./types";
+import {
+  GET_MYBOOKS,
+  SEARCH_BOOK,
+  GET_BOOK,
+  LOAD_MORE_BOOK,
+  SEARCH_MORE_BOOK
+} from "./types";
+
 import axios from "axios";
 
 export const GetMyBooks = () => async dispatch => {

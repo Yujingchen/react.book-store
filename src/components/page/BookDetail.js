@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Sidebar from "../layout/Sidebar";
-import Bookinfo from "../showcase/Bookinfo";
+import Bookinfo from "../book/Bookinfo";
 
 class BookDetail extends Component {
   render() {

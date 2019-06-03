@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Sidebar from "../layout/Sidebar";
-import Searchpage from "../bookcard/Searchpage";
+import Searchpage from "../card/Searchpage";
 
 class SearchResult extends Component {
   render() {

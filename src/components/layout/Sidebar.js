@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
+import { connect } from "react-redux";
 class Sidebar extends Component {
   render() {
     return (
@@ -13,7 +14,9 @@ class Sidebar extends Component {
               <li className="list-item">My orders</li>
               <li className="list-item">Profile</li>
               <li className="list-item">Gift Cards</li>
-              <li className="list-item">Wish list</li>
+              <li className="list-item">
+                <Link to="/wishlist">Wish list</Link>
+              </li>
             </ul>
           </div>
         ) : (

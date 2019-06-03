@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Cards from "../card/Cards";
+import Wishlist from "../wishlist/Wishlist";
 import Sidebar from "../layout/Sidebar";
 
-class Home extends Component {
+class WishList extends Component {
   render() {
     let mainStyle = {};
     this.props.sidebarToggled
@@ -15,7 +15,7 @@ class Home extends Component {
     return (
       <div style={mainStyle}>
         <div className="main-content">
-          <Cards />
+          <Wishlist />
         </div>
         <div className="side-bar">
           <Sidebar />
@@ -30,4 +30,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   null
-)(Home);
+)(WishList);

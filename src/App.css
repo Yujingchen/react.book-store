@@ -57,6 +57,21 @@
   line-height: 39px;
   margin-bottom: 20px;
 }
+.collection-title-2 {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 39px;
+  margin-bottom: -30px;
+  margin-left: 15px;
+}
+.collection-title-3 {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 39px;
+  margin-bottom: -50px;
+  margin-left: 15px;
+  border-bottom: solid 1px #c8c8c8;
+}
 
 /* card */
 .card {
@@ -344,4 +359,161 @@ a.start-shopping-btn:hover {
 
 .checked {
   color: orange;
+}
+
+.wishlist-item {
+  width: 80%;
+  border-bottom: 1px solid #c8c8c8;
+  margin-top: 24px;
+  padding-bottom: 24px;
+  padding-top: 34px;
+}
+
+.wishlist-img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  word-break: break-all;
+  vertical-align: middle;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.wishlist-item-img {
+  width: 100px;
+  height: 140px;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  border: solid 1px #c8c8c8;
+  display: inline-block;
+  margin-right: 32px;
+}
+
+.wishlist-item-container {
+  display: inline-block;
+  margin-right: 15px;
+  vertical-align: top;
+}
+
+.wishlist-info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wishlist-item-title {
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.wishlist-item-note {
+  margin-bottom: 20px;
+  margin-top: 2px;
+}
+
+.item-note {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  font-size: 12px;
+  color: #767676;
+}
+
+.wishlist-item-info {
+  list-style: none;
+}
+
+.wishlist-price-info {
+  list-style: none;
+  float: left;
+
+  vertical-align: top;
+  padding-bottom: 25px;
+}
+
+.item-colmn {
+  padding-left: 0;
+  padding: 0 20px 0 20px;
+  list-style: none;
+  float: left;
+  vertical-align: top;
+  margin-bottom: 25px;
+}
+
+.info-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #6e6e6e;
+}
+.list-item-info {
+  font-size: 1rem;
+  margin-top: 3px;
+  margin-bottom: 4px;
+}
+
+.wishlist-info-list li span {
+  display: block;
+}
+
+.wishlist-author-list {
+  float: right;
+  border-right: 0;
+  border-left: solid 1px #c8c8c8;
+  float: left;
+  border-right: solid 1px #c8c8c8;
+  vertical-align: top;
+  margin-bottom: 0;
+  width: 200px;
+  max-height: 80px;
+  min-height: 80px;
+}
+
+.wishlist-subject-list {
+  float: right;
+  border-right: 0;
+  float: left;
+  border-right: solid 1px #c8c8c8;
+  vertical-align: top;
+  margin-bottom: 0;
+  width: 200px;
+  min-height: 80px;
+  max-height: 80px;
+}
+.item-price-colmn {
+  padding-right: 25px;
+}
+
+.whishlist-subject-list {
+  float: right;
+  border-right: 0;
+  border-left: solid 1px #c8c8c8;
+}
+
+.wishlist-item-action {
+  margin-right: 0;
+  margin-top: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.wishlist-action {
+  margin-bottom: 16px;
+  display: block;
+}
+
+.wishlist-btn {
+  padding: 10px;
+  max-width: 178px;
+  font-size: 0.875rem;
+  text-align: center;
+  color: #fff;
+  border: 1px solid #3665f3 !important;
+  background: #3665f3 !important;
+  width: 200px;
 }

@@ -25,97 +25,105 @@ class Items extends Component {
         <div className="header">
           <Header />
         </div>
-        <div className="collection-title">Shopping Cart</div>
-        {Array.isArray(carts) ? (
-          carts.length !== 0 ? (
-            <>
-              <div className="checkout-table container">
-                <table className="table table-striped cart-table">
-                  <thead>
-                    <tr>
-                      <th scope="col-4">Product</th>
-                      <th scope="col-2">Quantity</th>
-                      <th scope="col-2">Price</th>
-                      <th scope="col-2">Total</th>
-                      <th scope="col-2" />
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {carts.map((cart, i) => (
-                      <Item
-                        increment={this.handleAddCount.bind(this, cart.id)}
-                        decrement={this.handleDecreaseCount.bind(this, cart.id)}
-                        onDeleteClick={this.handleDeleteClick.bind(
-                          this,
-                          cart.id
-                        )}
-                        itemCount={cart.count}
-                        //changed
-                        image={
-                          cart.volumeInfo.hasOwnProperty("imageLinks")
-                            ? cart.volumeInfo.imageLinks.smallThumbnail
-                            : imageNotFound
-                        }
-                        industryIdentifiers={
-                          cart.volumeInfo.hasOwnProperty("industryIdentifiers")
-                            ? cart.volumeInfo.industryIdentifiers[0].identifier
-                            : "Unknown ISBN"
-                        }
-                        subject={
-                          cart.volumeInfo.hasOwnProperty("categories")
-                            ? cart.volumeInfo.categories[0]
-                            : "Uncategorized"
-                        }
-                        authors={
-                          cart.volumeInfo.hasOwnProperty("authors")
-                            ? cart.volumeInfo.authors
-                            : null
-                        }
-                        price={
-                          cart.saleInfo.hasOwnProperty("listPrice")
-                            ? parseFloat(
-                                Math.round(
-                                  cart.saleInfo.listPrice.amount * 100
-                                ) / 100
-                              ).toFixed(2)
-                            : 0
-                        }
-                        subtotal={cart.total}
-                        stock={
-                          cart.saleInfo.hasOwnProperty("saleability")
-                            ? cart.saleInfo.saleability === "NOT_FOR_SALE"
-                              ? cart.saleInfo.saleability.replace(
-                                  "NOT_FOR_SALE",
-                                  "Out Of Stock"
-                                )
-                              : cart.saleInfo.saleability.replace(
-                                  "FOR_SALE",
-                                  "In Stock"
-                                )
-                            : "Unknown Sale State"
-                        }
-                        publisher={
-                          cart.volumeInfo.hasOwnProperty("publisher")
-                            ? cart.volumeInfo.publisher
-                            : "Unknown publisher"
-                        }
-                        key={cart.id}
-                        id={cart.id}
-                      />
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <div className="checkout-form container">
-                <CheckoutForm history={this.props.history} />
-              </div>
-            </>
+        <div className="container">
+          <div className="collection-title-2">Shopping Cart</div>
+          {Array.isArray(carts) ? (
+            carts.length !== 0 ? (
+              <>
+                <div className="checkout-table container">
+                  <table className="table table-striped cart-table">
+                    <thead>
+                      <tr>
+                        <th scope="col-4">Product</th>
+                        <th scope="col-2">Quantity</th>
+                        <th scope="col-2">Price</th>
+                        <th scope="col-2">Total</th>
+                        <th scope="col-2" />
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {carts.map((cart, i) => (
+                        <Item
+                          increment={this.handleAddCount.bind(this, cart.id)}
+                          decrement={this.handleDecreaseCount.bind(
+                            this,
+                            cart.id
+                          )}
+                          onDeleteClick={this.handleDeleteClick.bind(
+                            this,
+                            cart.id
+                          )}
+                          itemCount={cart.count}
+                          //changed
+                          image={
+                            cart.volumeInfo.hasOwnProperty("imageLinks")
+                              ? cart.volumeInfo.imageLinks.smallThumbnail
+                              : imageNotFound
+                          }
+                          industryIdentifiers={
+                            cart.volumeInfo.hasOwnProperty(
+                              "industryIdentifiers"
+                            )
+                              ? cart.volumeInfo.industryIdentifiers[0]
+                                  .identifier
+                              : "Unknown ISBN"
+                          }
+                          subject={
+                            cart.volumeInfo.hasOwnProperty("categories")
+                              ? cart.volumeInfo.categories[0]
+                              : "Uncategorized"
+                          }
+                          authors={
+                            cart.volumeInfo.hasOwnProperty("authors")
+                              ? cart.volumeInfo.authors
+                              : null
+                          }
+                          price={
+                            cart.saleInfo.hasOwnProperty("listPrice")
+                              ? parseFloat(
+                                  Math.round(
+                                    cart.saleInfo.listPrice.amount * 100
+                                  ) / 100
+                                ).toFixed(2)
+                              : 0
+                          }
+                          subtotal={cart.total}
+                          stock={
+                            cart.saleInfo.hasOwnProperty("saleability")
+                              ? cart.saleInfo.saleability === "NOT_FOR_SALE"
+                                ? cart.saleInfo.saleability.replace(
+                                    "NOT_FOR_SALE",
+                                    "Out Of Stock"
+                                  )
+                                : cart.saleInfo.saleability.replace(
+                                    "FOR_SALE",
+                                    "In Stock"
+                                  )
+                              : "Unknown Sale State"
+                          }
+                          publisher={
+                            cart.volumeInfo.hasOwnProperty("publisher")
+                              ? cart.volumeInfo.publisher
+                              : "Unknown publisher"
+                          }
+                          key={cart.id}
+                          id={cart.id}
+                        />
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="checkout-form container">
+                  <CheckoutForm history={this.props.history} />
+                </div>
+              </>
+            ) : (
+              <Empty />
+            )
           ) : (
             <Empty />
-          )
-        ) : (
-          <Empty />
-        )}
+          )}
+        </div>
       </>
     );
   }
