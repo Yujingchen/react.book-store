@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Item from "./Item";
+import Empty from "./Empty";
 import CheckoutForm from "./CheckoutForm";
 import Header from "../layout/Header";
+
 import { AddCount, DecreaseCount, DeleteCart } from "../../actions/cartAction";
 import imageNotFound from "../image/ImageNotFound.png";
 
@@ -109,10 +111,10 @@ class Items extends Component {
               </div>
             </>
           ) : (
-            "null"
+            <Empty />
           )
         ) : (
-          "null"
+          <Empty />
         )}
       </>
     );

@@ -4,7 +4,10 @@ import Header from "../layout/Header";
 import Productinfo from "./ProductInfo";
 import { GetBook } from "../../actions/bookAction";
 import imageNotFound from "../image/ImageNotFound.png";
+import { AddCartFromBooks } from "../../actions/cartAction";
 import Spinner from "../layout/Spinner";
+import { Link } from "react-router-dom";
+import RatingStar from "../layout/RatingStar";
 class Bookinfo extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +22,9 @@ class Bookinfo extends Component {
     await this.props.GetBook(id);
     this.setState({ loaded: true });
   }
+  handleAddCart = id => {
+    this.props.AddCartFromBooks(id);
+  };
 
   render() {
     const { book } = this.props;
@@ -61,9 +67,15 @@ class Bookinfo extends Component {
                     </p>
                     <p>
                       Rating:{" "}
-                      {book.volumeInfo.hasOwnProperty("averageRating")
-                        ? book.volumeInfo.averageRating.toFixed(1)
-                        : "No rating avaiable"}
+                      {book.volumeInfo.hasOwnProperty("averageRating") ? (
+                        <RatingStar
+                          rating={parseFloat(
+                            book.volumeInfo.averageRating
+                          ).toFixed(1)}
+                        />
+                      ) : (
+                        "Not avaiable"
+                      )}
                     </p>
                   </div>
                   <div className="sale-info">
@@ -93,6 +105,20 @@ class Bookinfo extends Component {
                     ) : (
                       <p>Unknown Sale State</p>
                     )}
+                    <Link
+                      to="/cart"
+                      className="btn btn-danger addCard"
+                      onClick={this.handleAddCart.bind(this, book.id)}
+                    >
+                      Add to Cart
+                    </Link>
+                    <Link
+                      to="/cart"
+                      className="btn addToWishlist-btn btn-success"
+                      onClick={this.props.addCart}
+                    >
+                      Add to Wishlist
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -185,5 +211,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { GetBook }
+  { GetBook, AddCartFromBooks }
 )(Bookinfo);

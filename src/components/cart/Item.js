@@ -32,12 +32,12 @@ class Item extends Component {
         </td>
         <td>
           <FaChevronCircleDown
-            className="text-primary cart-icon"
+            className="cart-icon"
             onClick={this.props.decrement}
           />
           <span>{this.props.itemCount}</span>
           <FaChevronCircleUp
-            className="text-primary cart-icon"
+            className="cart-icon"
             onClick={this.props.increment}
           />
         </td>

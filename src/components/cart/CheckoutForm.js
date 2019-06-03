@@ -97,10 +97,10 @@ class CheckoutForm extends Component {
             </tr>
 
             <tr>
+              <td>Total</td>
               <td>
-                <b>Total</b>
+                <span className="bold-lg-text">{total.toFixed(2)}€</span>
               </td>
-              <td>{total.toFixed(2)}€</td>
             </tr>
             <tr>
               <td>

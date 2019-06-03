@@ -110,6 +110,14 @@
   margin-left: 8px;
   font-size: 15px !important;
   font-weight: 300;
+  background-color: rgb(206, 43, 135);
+}
+
+.addToWishlist-btn {
+  margin-left: 8px;
+  font-size: 15px !important;
+  font-weight: 300;
+  color: #fff;
 }
 
 .searchContainer {
@@ -262,7 +270,7 @@ th {
 .checkout-table {
   margin-top: 50px;
 }
-
+/* 
 .quantityInput {
   width: 20%;
   color: transparent;
@@ -270,17 +278,17 @@ th {
 }
 .quantityInput:focus {
   outline: none;
-}
+} */
 
-input::-webkit-outer-spin-button,
+/* input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-}
+  margin: 0; 
+} */
 
 .cart-icon {
   cursor: pointer;
+  color: #d4265b;
 }
 
 .cart-cell {
@@ -290,4 +298,50 @@ input::-webkit-inner-spin-button {
 
 .delete-icon {
   cursor: pointer;
+}
+
+.start-shopping-btn {
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  font-weight: normal;
+  line-height: 1.15;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 40px;
+  min-width: 320px;
+  font-size: 1.125rem;
+  height: 2.75rem;
+}
+
+a.start-shopping-btn:hover {
+  text-decoration: none;
+}
+
+.empty-cart {
+  padding-top: 6rem;
+  padding-bottom: 9.5rem;
+  text-align: center;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.font-title {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.empty-cart .actions {
+  margin-top: 1.5rem;
+}
+
+.bold-lg-text {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.checked {
+  color: orange;
 }

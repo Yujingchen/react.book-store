@@ -75,7 +75,9 @@ class Cards extends Component {
                             book.saleInfo.hasOwnProperty("listPrice")
                               ? book.saleInfo.listPrice.amount === 0
                                 ? "Free"
-                                : book.saleInfo.listPrice.amount + "€"
+                                : parseFloat(
+                                    book.saleInfo.listPrice.amount
+                                  ).toFixed(2) + "€"
                               : "Unknown"
                           }
                           id={book.id}
@@ -93,9 +95,7 @@ class Cards extends Component {
                         SEE MORE
                       </button>
                     </div>
-                  ) : (
-                    <Spinner />
-                  )}
+                  ) : null}
                 </div>
               ) : (
                 <Spinner />
