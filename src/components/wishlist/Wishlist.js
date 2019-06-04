@@ -24,7 +24,7 @@ class Wishlist extends Component {
         </div>
         <div className="container">
           <div className="collection-title-3">Wishlist</div>
-          {console.log(wishlist)}
+
           {Array.isArray(wishlist) ? (
             wishlist.length !== 0 ? (
               <>

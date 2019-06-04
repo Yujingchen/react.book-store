@@ -10,7 +10,7 @@ class Sidebar extends Component {
           <div className="onSidebar sidebar-list">
             <ul className="list-group ">
               <li className="list-item">Menu</li>
-              <li className="list-item">Category</li>
+              <li className="list-item">           <Link to="/category">Category list</Link></li>
               <li className="list-item">My orders</li>
               <li className="list-item">Profile</li>
               <li className="list-item">Gift Cards</li>

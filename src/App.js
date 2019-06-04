@@ -10,6 +10,7 @@ import SearchResult from "./components/page/SearchResult";
 import NotFound from "./components/page/NotFound";
 import CartDetail from "./components/page/CartDetail";
 import WishList from "./components/page/WishList";
+import Category from "./components/page/Category";
 class App extends Component {
   render() {
     return (
@@ -22,6 +23,7 @@ class App extends Component {
               <Route exact path={`/search/:keyword`} component={SearchResult} />
               <Route exact path={"/cart"} component={CartDetail} />
               <Route exact path={"/wishlist"} component={WishList} />
+              <Route exact path={"/category"} component={Category} />
               <Route component={NotFound} />
             </Switch>
           </div>

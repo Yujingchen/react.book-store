@@ -17,16 +17,12 @@ class Card extends Component {
 
           <div className="card-body">
             <div className="cardTitle">
-              <Link
-                to={`../book/${this.props.id}`}
-                alt={this.props.title}
-                title={this.props.title}
-              >
+              <span alt={this.props.title} title={this.props.title}>
                 <p className="card-title">{this.props.title}</p>
-              </Link>
+              </span>
             </div>
             <div className="cardText">
-              <Link to={`../book/${this.props.id}`}>
+              <span>
                 {this.props.authors !== null ? (
                   <p className="card-text">
                     {this.props.authors.map(author => author + "\n")}
@@ -34,7 +30,7 @@ class Card extends Component {
                 ) : (
                   <p className="card-text">{"Unknown Author"}</p>
                 )}
-              </Link>
+              </span>
             </div>
 
             <div className="row">
@@ -44,6 +40,7 @@ class Card extends Component {
                 onClick={this.props.addCart}
               >
                 Add to Cart
+                
               </Link>
               <span className="priceTag">{this.props.price}</span>
             </div>
