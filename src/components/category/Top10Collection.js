@@ -5,7 +5,7 @@ export default class Top10Collection extends Component {
     return (
       <div>
         <div className="top10-title-wrapper ">
-          <h2>Top 10 nonfiction</h2>
+          <h2>Top 10 Fiction</h2>
         </div>
         <div>
           <Top10 />

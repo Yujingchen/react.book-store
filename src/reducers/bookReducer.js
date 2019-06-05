@@ -10,7 +10,11 @@ import {
   DECREASE_CART_COUNT,
   DELETE_CART,
   ADD_WISHLIST,
-  DELETE_WISHLIST
+  DELETE_WISHLIST,
+  GET_TOP10_FICTION,
+  GET_TOP10_CHILDREN,
+  GET_TOP10_ROMANCE,
+  GET_TOP10_COMICS
 } from "../actions/types";
 
 const initialState = {
@@ -19,7 +23,8 @@ const initialState = {
   books: [],
   result: [],
   carts: [],
-  wishlist: []
+  wishlist: [],
+  top10: []
 };
 
 export default function(state = initialState, action) {
@@ -117,6 +122,14 @@ export default function(state = initialState, action) {
         ...state,
         wishlist: state.wishlist.filter(item => item.id !== action.payload)
       };
+    case GET_TOP10_FICTION:
+      return { ...state, top10: action.payload };
+    case GET_TOP10_CHILDREN:
+      return { ...state, top10: action.payload };
+    case GET_TOP10_ROMANCE:
+      return { ...state, top10: action.payload };
+    case GET_TOP10_COMICS:
+      return { ...state, top10: action.payload };
 
     default:
       return state;
